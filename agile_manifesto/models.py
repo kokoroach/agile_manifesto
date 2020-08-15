@@ -15,9 +15,15 @@ class Values(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
 
+    def __repr__(self):
+        return self.name
+
 
 class Principles(Base):
     __tablename__ = "principles"
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+
+    def __repr__(self):
+        return self.name

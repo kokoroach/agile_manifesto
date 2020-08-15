@@ -1,4 +1,5 @@
 import os
+import registrar as reg
 
 from config import DB_PATH
 from utils.db import create_session, materialize_schema
@@ -7,18 +8,11 @@ from models import Base, engine, Values, Principles
 
 def load_default_data():
     from setup.default_data import VALUES, PRINCIPLES
-
-    session = create_session(engine)
-
     for value in VALUES:
-        row = Values(name=value)
-        session.add(row)
-
+        reg.create_Value(value)
     for principle in PRINCIPLES:
-        row = Principles(name=principle)
-        session.add(row)
-
-    session.commit()
+        reg.create_Principle(principle)
+    reg.commit()
 
 
 def setup_db():
