@@ -1,8 +1,7 @@
 import os
-from pathlib import Path
+from utils.path import get_root_path
 
-_path = Path(__file__).parent.absolute()
+root = get_root_path()
 
-DB_DIR = os.path.join(_path, 'db')
-DB_NAME = 'agile_manifesto.db'
-DB_ENGINE = 'sqlite:///{}'.format(os.path.join(DB_DIR, DB_NAME))
+DB_PATH = os.path.join(root, 'db', 'agile_manifesto.db')
+DB_ENGINE = f'sqlite:///{DB_PATH}'

@@ -21,7 +21,3 @@ class Principles(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
-
-
-def materialize_schema():
-    Base.metadata.create_all(engine)
